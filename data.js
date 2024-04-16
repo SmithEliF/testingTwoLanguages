@@ -10,6 +10,8 @@ const cars = [
 
 button.onclick= function(){
 
+    data.innerHTML = null
+
     // Get the reciever endpoint from Python using fetch</strong>
     fetch("http://127.0.0.1:5000/receiver", 
         {

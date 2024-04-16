@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import re
 
 # Set up Flask
 app = Flask(__name__)
@@ -9,8 +10,16 @@ cors = CORS(app)
 # Create the receiver API POST endpoint
 @app.route("/receiver", methods=["POST"])
 def postME():
+   count = 0
    data = request.get_json()
    data = jsonify(data)
+   collected = data.json
+   for line in collected :
+      count += 1
+      make = line['make']
+      model = line['model']
+      print(f'\nCar: {count}\nMake: {make}\nModel: {model}\n')
    return data
 if __name__ == "__main__": 
    app.run(debug=True)
+   
