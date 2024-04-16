@@ -29,7 +29,9 @@ button.onclick= function(){
                 
                 // Iterate through the data with Map and write to the page
                 jsonResponse.map(Main=>
+                    // If the cars make is Porsche, it writes that it is a good product
                     Main.make==="Porsche"? data.innerHTML +="<p>"+ Main.make+" "+" is a good product":
+                    // If the cars make is anything else, it writes that it is an average product
                     data.innerHTML +="<p>"+ Main.make+" "+"is an average product" ) 
             } 
             ).catch((err) => console.error(err));
