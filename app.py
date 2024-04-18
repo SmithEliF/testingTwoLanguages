@@ -15,9 +15,9 @@ def postME():
    collected = data.json
    for line in collected :
       count += 1
-      make = line['make']
-      model = line['model']
-      print(f'\nCar: {count}\nMake: {make}\nModel: {model}\n')
+      username = line['username']
+      password = line['password']
+      print(f'\nUsers: {count}\nUsername: {username}\nPassword: {password}\n')
    return data
 if __name__ == "__main__": 
    app.run(debug=True)
