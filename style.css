@@ -2,3 +2,27 @@ input {
     display: block;
     margin-bottom: 8px;
 }
+#sendToPython {
+    display:block;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+#recieveFromPython {
+    display:block;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+#noAccount{
+    background-color: transparent;
+    border: none;
+    display: block;
+    color: #0000EE ;
+    cursor: pointer;
+}
+#haveAccount{
+    background-color: transparent;
+    border: none;
+    display: block;
+    color: #0000EE ;
+    cursor: pointer;
+}

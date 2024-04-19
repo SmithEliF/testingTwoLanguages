@@ -7,14 +7,28 @@
         </title>
     </head>
     <body>
+        <div id = 'loginPage'>
+            <center>
+                <H1>Mock Log-In System</H1>
+                <input type="text" id="usernameLogin" placeholder = 'Username'>
+                <input type="text" id="passwordLogin" placeholder="Password">
+                <button id="recieveFromPython" onclick = "recieveNow()">Log In</button>
+                <button id="noAccount">Don't Have an Account?</button>
+            </center>
+        </div>
+        <div id = 'signupPage'>
+            <center>
+                <H1>Mock Sign-Up System</H1>
+                <input type="text" id="usernameSignup" placeholder = 'Username'>
+                <input type="text" id="passwordSignup" placeholder="Password">
+                <button id="sendToPython">Sign Up</button>
+                <button id="haveAccount">Have an Account?</button>
+                
+            </center>
+        </div>
         <center>
-        <H1>Mock Log-In System</H1>
-        <input type="text" id="usernameInput" placeholder = 'Username'>
-        <input type="text" id="passwordInput" placeholder="Password">
-        <button id="theButton">Log In</button>
         <h3 id = "info"></h3>
         </center>
-
         <script src="data.js"></script>
     </body>
 </html>

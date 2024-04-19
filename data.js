@@ -1,27 +1,31 @@
-const button = document.getElementById("theButton")
+const loginPage = document.getElementById("loginPage")
+const signupPage = document.getElementById("signupPage")
+const sendIt = document.getElementById("sendToPython")
+const recieveIt = document.getElementById("recieveFromPython")
+const toSignup = document.getElementById("noAccount")
+const toLogin = document.getElementById("haveAccount")
 const data = document.getElementById("info")
 
-// Create the data to send to Python
+loginPage.style.display = 'none'
 
-
-button.onclick= function(){
+sendIt.onclick= function(){
 
     data.innerHTML = null
 
-    un = document.getElementById('usernameInput').value
+    un = document.getElementById('usernameSignup').value
 
-    ps = document.getElementById('passwordInput').value
+    ps = document.getElementById('passwordSignup').value
 
     if(un.length < 1 || ps.length < 1){
         alert("Please fill out the required fields")
         return
     }
 
-    const login = [
+    const signup = [
         { "username":un, "password":ps },
        ];
 
-    // Get the reciever endpoint from Python using fetch</strong>
+    // Get the reciever endpoint from Python using fetch
     fetch("http://127.0.0.1:5000/receiver", 
         {
             method: 'POST',
@@ -29,8 +33,8 @@ button.onclick= function(){
                 'Content-type': 'application/json',
                 'Accept': 'application/json'
             },
-       //Strigify the data into JSON</strong>
-        body:JSON.stringify(login)}).then(res=>{
+       //Strigify the data into JSON
+        body:JSON.stringify(signup)}).then(res=>{
                 if(res.ok){
                     return res.json()
                 }else{
@@ -40,9 +44,43 @@ button.onclick= function(){
                 
                 // Iterate through the data with Map and write to the page
                 jsonResponse.map(Main=>
-                    // Posts login data underneath to test
+                    // Posts signup data underneath to test
                     data.innerHTML +="<p>"+"Username:"+ " " + Main.username) 
             } 
             ).catch((err) => console.error(err));
             
            }
+
+recieveIt.onclick= function(){
+    alert("UNDER CONSTRUCTION")
+
+/*
+    data.innerHTML = null
+
+    const pyData = {{ py_data|tojson }}
+
+    alert(pyData)
+
+    un = document.getElementById('usernameLogin').value
+
+    ps = document.getElementById('passwordLogin').value
+
+    if(un.length < 1 || ps.length < 1){
+        alert("Please fill out the required fields")
+        return
+    }
+    const login = [
+        { "username":un, "password":ps },
+       ]; */
+}
+
+toSignup.onclick = function(){
+    loginPage.style.display = 'none'
+    signupPage.style.display = 'block'
+    data.innerHTML = null
+}
+toLogin.onclick = function(){
+    loginPage.style.display = 'block'
+    signupPage.style.display = 'none'
+    data.innerHTML = null
+}
